@@ -8,7 +8,7 @@ CloudFunc
 ```
 
 # CloudFunc
-A simplified Cloud Function System
+A simplea Cloud Function System
 
 ## Project Structure
 ```
