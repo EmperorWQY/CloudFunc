@@ -7,6 +7,8 @@ import MainPage from '@/components/MainPage'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
+  base: '/CloudFunc/',
   routes: [
     {
       path: '/',

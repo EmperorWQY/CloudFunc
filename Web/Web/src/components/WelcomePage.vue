@@ -3,22 +3,36 @@
     <img src="../assets/logo.png"/>
     <h1>{{title}}</h1>
     <h3>{{msg}}</h3>
-    <el-button type="primary" round @click="onclick">进入</el-button>
+    <!-- <p>{{getContent()}}</p> -->
+    <el-button type="primary" round @click="onclick">Click to Enter</el-button>
   </div>
 </template>
 
-<script>
-export default {
+<script type = "text/javascript">
+export default{
   name: 'WelcomePage',
   data () {
     return {
-      title: 'Cloud Functiom',
-      msg: 'Welcome to use the simple Cloud Function'
+      title: 'Cloud Function',
+      msg: 'Welcome to use the Cloud Function',
+      word: {}
     }
+  },
+  mounted: function () {
+    this.$message('欢迎您')
   },
   methods: {
     onclick () {
-      this.$router.push({ path: '/MainPage' })
+      // this.$router.push({ path: '/MainPage' })
+      // this.$message('哈哈哈')
+      this.$axios.get('https://xauat.site/Farm/lsp').then(res => {
+        alert('success:' + res.data)
+      }).catch(err => {
+        alert(err)
+      })
+    },
+    getContent () {
+      return this.data.word.data[0].content
     }
   }
 }
